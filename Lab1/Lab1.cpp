@@ -43,7 +43,8 @@ int main()
 	else {
 		double p = (aSide + bSide + cSide) / 2;
 		double area = sqrt(p * (p - aSide) * (p - bSide) * (p - cSide));
-		cout << "Area of triangle equals " << area << endl;
+		printf("Area of triangle equals %.2f\n", area);
+		//cout << "Area of triangle equals " <<  area << endl;
 	}
 
 	system("pause");
@@ -96,7 +97,7 @@ int main()
 	cout << "Enter amount of years to count seconds:";
 	unsigned int yearsCount;
 	cin >> yearsCount;
-	long double secondCount = yearsCount * 365 * 24 * 60 * 60;
+	long long secondCount = yearsCount * 365 * 24 * 60 * 60;
 	cout << "There are " << secondCount << " seconds in " << yearsCount << " years";
 	
 	return 0;
