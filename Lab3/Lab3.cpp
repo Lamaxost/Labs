@@ -1,4 +1,5 @@
 //#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
 #include <math.h>
 #include <stdio.h>
@@ -14,6 +15,7 @@ int main()
 	SetConsoleOutputCP(1251);
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE); // Змінна, для зміни кольору консолі
 	MenuOptions userChoice; // Змінна, для навігації в меню
+
 	while (true) {
 
 		PrintMenuAndAskChoice(h, userChoice); // Виводимо меню, та отримуємо ввід користувача
