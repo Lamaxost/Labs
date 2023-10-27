@@ -6,7 +6,7 @@
 #include "Lab4.h"
 using namespace std;
 
-enum class MenuOptions { ClearConsole = -1, Exit = 0, PrintChartTask, GuesNumberTask, CheckMultiplyingTableTask, DigitSumTask};
+enum class MenuOptions { ClearConsole = -1, Exit = 0, PrintChartTask, CheckMultiplyingTableTask, GuesNumberTask, DigitSumTask};
 void PrintMenuAndAskChoice(const HANDLE& h, MenuOptions& choice);
 
 int main()
@@ -15,6 +15,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(h, 15);
 
 	MenuOptions choice; // Змінна, для навігації в меню
 	while (true) {
@@ -24,10 +25,10 @@ int main()
 		case MenuOptions::PrintChartTask:
 			PrintChartTask();
 			break;
-		case MenuOptions::GuesNumberTask:
+		case MenuOptions::CheckMultiplyingTableTask:
 			GuesNumberTask();
 			break;
-		case MenuOptions::CheckMultiplyingTableTask:
+		case MenuOptions::GuesNumberTask:
 			CheckMultiplyingTableTask();
 			break;
 		case MenuOptions::DigitSumTask:
@@ -51,6 +52,8 @@ int main()
 
 void PrintChartTask() {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(h, 15);
+
 	short n;        /* параметр зовнішнього циклу */
 	double x;    /* абсциса і ордината графіка */
 	short w;        /* позиція точки на екрані */
@@ -64,27 +67,44 @@ void PrintChartTask() {
 			double y = 0;
 			y = -sqrt(1 - x * x);
 			/* виведення рядка таблиці */
-			printf("| %5.2lf | %10.7lf |", x + n * 4, y);
+			SetConsoleTextAttribute(h, 15);
+			printf("| ");
+			SetConsoleTextAttribute(h, 4);
+			printf("%5.2lf | %10.7lf", x + n * 4, y);
+			SetConsoleTextAttribute(h, 15);
+			printf(" |");
+			SetConsoleTextAttribute(h, 15);
 			/* визначення позиції точки */
 			w = (y + 1) * 10;
 			if (y - 1 - w * 10 > 0.5) w++;
 			/* виведення точки графіка */
 			for (; w > 0; w--) printf(" ");
+			SetConsoleTextAttribute(h, 2);
 			printf("*\n");
+			SetConsoleTextAttribute(h, 15);
 		}  /* кінець внутрішнього циклу */
 		for (x = -2.5; x <= 2.5; x += 0.25)
 		{
 			/* визначення позиції точки */
 			double y = sqrt(2.5 * 2.5 - x * x);
-			printf("| %5.2lf | %10.7lf |", x + n * 4, y);
+			SetConsoleTextAttribute(h, 15);
+			printf("| ");
+			SetConsoleTextAttribute(h, 4);
+			printf("%5.2lf | %10.7lf", x+3.5 + n * 4, y);
+			SetConsoleTextAttribute(h, 15);
+			printf(" |");
+			SetConsoleTextAttribute(h, 15);
 			w = (y + 1) * 10;
 			if (y - 1 - w * 10 > 0.5) w++;
 			/* виведення точки графіка */
 			for (; w > 0; w--) printf(" ");
+			SetConsoleTextAttribute(h, 2);
 			printf("*\n");
+			SetConsoleTextAttribute(h, 15);
 		}
 	}  /* кінець зовнішнього циклу */
 } /* кінець програми */
+
 void CheckMultiplyingTableTask() {
 
 	srand(time(0));
@@ -99,19 +119,34 @@ void CheckMultiplyingTableTask() {
 		int answer = firstMultiplier * secondMultiplier;
 		int userInput = -1;
 		while (userInput != answer) {
-			cout << firstMultiplier << " х " << secondMultiplier << " = ";
+			SetConsoleTextAttribute(h, 4);
+			cout << firstMultiplier;
+			SetConsoleTextAttribute(h, 15);
+			cout << " х ";
+			SetConsoleTextAttribute(h, 4);
+			cout << secondMultiplier;
+			SetConsoleTextAttribute(h, 15);
+			cout << " = ";
 			cin >> userInput;
 			if (userInput != answer) {
+				SetConsoleTextAttribute(h, 4);
 				cout << "Неправильно ! Спробуйте ще раз" << endl;
 				mark--;
 			}
 		}
 		mark++;
+		SetConsoleTextAttribute(h, 2);
 		cout << "Правильно ! " << endl;
 	}
-	cout << "Оцінка " << mark << "/10";
+	SetConsoleTextAttribute(h, 15);
+	cout << "Оцінка ";
+	SetConsoleTextAttribute(h, 2);
+	cout << mark;
+	SetConsoleTextAttribute(h, 15);
+	cout << "/10";
 
 }
+
 void GuesNumberTask()
 {
 	srand(time(0));
@@ -121,21 +156,34 @@ void GuesNumberTask()
 	int tryCount = 0;
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(h, 15);
-	cout << "Комп'ютер загадав число від " << from << " до " << to << endl;
+	cout << "Комп'ютер загадав число від ";
+	cout << from << " до " << to << endl;
+	SetConsoleTextAttribute(h, 4);
+	cout << from;
+	SetConsoleTextAttribute(h, 15);
+	cout << " до ";
+	SetConsoleTextAttribute(h, 2);
+	cout << to << endl;
+	SetConsoleTextAttribute(h, 15);
 	while (userNumber != computerNumber) {
 		cout << "Введіть число: ";
 		cin >> userNumber;
 		tryCount++;
 		if (userNumber < computerNumber) {
+			SetConsoleTextAttribute(h, 4);
 			cout << "Ваше число менже ніж число яке загадав коп'ютер" << endl;
+			SetConsoleTextAttribute(h, 15);
 		}
 		else if (userNumber > computerNumber) {
+			SetConsoleTextAttribute(h, 2);
 			cout << "Ваше число більше ніж число яке загадав коп'ютер" << endl;
+			SetConsoleTextAttribute(h, 15);
 		}
 	}
-	cout << "Ви вгадали число за " << tryCount << " спроб" << endl
-		;
+	SetConsoleTextAttribute(h, 2);
+	cout << "Ви вгадали число за " << tryCount << " спроб" << endl;
 }
+
 void DigitSumTask() {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(h, 15);
@@ -147,6 +195,7 @@ void DigitSumTask() {
 	int digitCount = 0;
 	int endOfNumberIndex = -1;
 	if (number[0] == '-') {
+		SetConsoleTextAttribute(h, 4);
 		cout << "Це від'ємне число !" << endl;
 		return;
 	}
@@ -161,6 +210,7 @@ void DigitSumTask() {
 		}
 		int digit = int(number[i] - '0');
 		if (digit < 0 || digit>9) {
+			SetConsoleTextAttribute(h, 4);
 			cout << "Неправильно написане число !" << endl;
 			return;
 		}
@@ -172,10 +222,21 @@ void DigitSumTask() {
 		int digit = int(number[i] - '0');
 		digitCount++;
 		digitSum += digit;
+		SetConsoleTextAttribute(h, 2);
 		cout << digit;
 	}
+	SetConsoleTextAttribute(h, 15);
+	cout << "\nСумма: ";
+	SetConsoleTextAttribute(h, 2);
+	cout << digitSum << endl;
+	SetConsoleTextAttribute(h, 15);
+	cout << "Кількість цифр: ";
+	SetConsoleTextAttribute(h, 2);
+	cout << digitCount << endl;
+	SetConsoleTextAttribute(h, 15);
 	
 }
+
 void PrintMenuAndAskChoice(const HANDLE& h, MenuOptions& choice)
 {
 	SetConsoleTextAttribute(h, 15);
@@ -185,11 +246,11 @@ void PrintMenuAndAskChoice(const HANDLE& h, MenuOptions& choice)
 	SetConsoleTextAttribute(h, 15);
 	printf(" - надрукувати графік");
 	SetConsoleTextAttribute(h, 10);
-	printf("\n%i", MenuOptions::GuesNumberTask);
+	printf("\n%i", MenuOptions::CheckMultiplyingTableTask);
 	SetConsoleTextAttribute(h, 15);
 	printf(" - вгадати число");
 	SetConsoleTextAttribute(h, 10);
-	printf("\n%i", MenuOptions::CheckMultiplyingTableTask);
+	printf("\n%i", MenuOptions::GuesNumberTask);
 	SetConsoleTextAttribute(h, 15);
 	printf(" - перевірити знання з таблиці множення");
 	SetConsoleTextAttribute(h, 10);
