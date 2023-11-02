@@ -8,10 +8,12 @@
 
 using namespace std;
 int random(int from, int to);
+void Task1();
+void Task1();
 void ArrayProcessing();
 void SeatsDistributor();
 void ArrayInsert();
-enum class MenuOptions { ClearConsole = -1, Exit = 0, ArrayInsert, SeatsDistributor, ArrayProcessing};
+enum class MenuOptions { ClearConsole = -1, Exit = 0, Filling, SeatsDistributor, Task3};
 void PrintMenuAndAskChoice(const HANDLE& h, MenuOptions& choice);
 int main()
 {
@@ -25,15 +27,14 @@ int main()
         PrintMenuAndAskChoice(h, choice);
         switch (choice)
         {
-        case MenuOptions::ArrayInsert:
+        case MenuOptions::Filling:
             ArrayInsert();
             break;
         case MenuOptions::SeatsDistributor:
             SeatsDistributor();
             break;
-        case MenuOptions::ArrayProcessing:
+        case MenuOptions::Task3:
             ArrayProcessing();
-            break;
             break;
         case MenuOptions::Exit:
             return 0;
@@ -223,7 +224,7 @@ void PrintMenuAndAskChoice(const HANDLE& h, MenuOptions& choice)
     SetConsoleTextAttribute(h, 15);
     printf("\n\nВиберіть потрібне завдання:");
     SetConsoleTextAttribute(h, 10);
-    printf("\n%i", MenuOptions::ArrayInsert);
+    printf("\n%i", MenuOptions::Filling);
     SetConsoleTextAttribute(h, 15);
     printf(" - вставити в масив");
     SetConsoleTextAttribute(h, 10);
@@ -231,7 +232,7 @@ void PrintMenuAndAskChoice(const HANDLE& h, MenuOptions& choice)
     SetConsoleTextAttribute(h, 15);
     printf(" - розподілити місця");
     SetConsoleTextAttribute(h, 10);
-    printf("\n%i", MenuOptions::ArrayProcessing);
+    printf("\n%i", MenuOptions::Task3);
     SetConsoleTextAttribute(h, 15);
     printf(" - операції над масивом");
     SetConsoleTextAttribute(h, 10);
