@@ -21,6 +21,7 @@ void SwapElements(int** matrix, int aRow, int aColumn, int bRow, int bColumn) {
     matrix[aRow][aColumn] = matrix[bRow][bColumn];
     matrix[bRow][bColumn] = temp;
 }
+
 void FillMatrix(int** matrix, int rows, int columns) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
@@ -178,7 +179,11 @@ void Task3() {
         SetConsoleTextAttribute(h, 2);
         cout << " можна ";
         SetConsoleTextAttribute(h, 15);
-        cout << "перемножувати";
+        cout << "перемножувати\n";
+        cout << "Вийдне матриця розмірами ";
+        SetConsoleTextAttribute(h, 2);
+        cout << rows2 << " " << columns1;
+
     }
     else {
         cout << "Матриці";
