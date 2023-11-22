@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab9", "Lab9\Lab9.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab8_2", "Lab8_2\Lab8_2.vcxproj", "{D0444E13-425E-48F0-82D3-1AF8A942E654}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RGZ", "RGZ\RGZ.vcxproj", "{F3068282-4BA6-4EF6-ABC1-13F894895D3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,18 @@ Global
 		{D0444E13-425E-48F0-82D3-1AF8A942E654}.Release|x64.Build.0 = Release|x64
 		{D0444E13-425E-48F0-82D3-1AF8A942E654}.Release|x86.ActiveCfg = Release|Win32
 		{D0444E13-425E-48F0-82D3-1AF8A942E654}.Release|x86.Build.0 = Release|Win32
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Debug|Any CPU.Build.0 = Debug|x64
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Debug|x64.ActiveCfg = Debug|x64
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Debug|x64.Build.0 = Debug|x64
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Debug|x86.ActiveCfg = Debug|Win32
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Debug|x86.Build.0 = Debug|Win32
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Release|Any CPU.ActiveCfg = Release|x64
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Release|Any CPU.Build.0 = Release|x64
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Release|x64.ActiveCfg = Release|x64
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Release|x64.Build.0 = Release|x64
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Release|x86.ActiveCfg = Release|Win32
+		{F3068282-4BA6-4EF6-ABC1-13F894895D3E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
