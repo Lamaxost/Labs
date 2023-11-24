@@ -436,7 +436,7 @@ namespace RGZ {
 			this->ClientSize = System::Drawing::Size(592, 261);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"Обчислення площи трикуткника";
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->tableLayoutPanel7->ResumeLayout(false);
